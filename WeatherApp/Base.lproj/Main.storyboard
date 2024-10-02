@@ -1,24 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l0R-tx-FKU">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jhI-cE-CAh">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="48z-u7-CXg">
+                                <rect key="frame" x="10" y="91" width="370" height="663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n47-SL-5gC">
+                                <rect key="frame" x="10" y="764" width="370" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="8d5-K4-Ub6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GxF-1g-DRn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="n47-SL-5gC" firstAttribute="top" secondItem="48z-u7-CXg" secondAttribute="bottom" id="3QY-Ho-LpQ"/>
+                            <constraint firstItem="48z-u7-CXg" firstAttribute="top" secondItem="GxF-1g-DRn" secondAttribute="top" id="E0c-sW-XLk"/>
+                            <constraint firstItem="n47-SL-5gC" firstAttribute="trailing" secondItem="48z-u7-CXg" secondAttribute="trailing" id="L66-EX-xjP"/>
+                            <constraint firstItem="48z-u7-CXg" firstAttribute="leading" secondItem="GxF-1g-DRn" secondAttribute="leading" constant="10" id="UoT-91-NFc"/>
+                            <constraint firstItem="n47-SL-5gC" firstAttribute="leading" secondItem="48z-u7-CXg" secondAttribute="leading" id="dIK-we-F3Y"/>
+                            <constraint firstItem="48z-u7-CXg" firstAttribute="trailing" secondItem="GxF-1g-DRn" secondAttribute="trailing" constant="-10" id="kPh-Me-eTa"/>
+                            <constraint firstItem="n47-SL-5gC" firstAttribute="top" secondItem="48z-u7-CXg" secondAttribute="bottom" constant="10" id="qXz-3y-SUs"/>
+                            <constraint firstItem="n47-SL-5gC" firstAttribute="bottom" secondItem="GxF-1g-DRn" secondAttribute="bottom" constant="34" id="r5O-nU-AE0"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3QY-Ho-LpQ"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="coP-wq-1WI">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="io3-TW-8rl">
+                                <connections>
+                                    <action selector="addBtnClicked:" destination="BYZ-38-t0r" id="ItS-KH-WF5"/>
+                                    <segue destination="726-ms-JTp" kind="show" identifier="ShowSearchScreen" id="jZe-Xk-SmH"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="edit" id="5cY-VE-IQB"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="citiesList" destination="48z-u7-CXg" id="d8A-h1-Oli"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="524.61538461538464" y="64.691943127962077"/>
+        </scene>
+        <!--Search Cities View Controller-->
+        <scene sceneID="Y2s-8k-V3T">
+            <objects>
+                <viewController id="726-ms-JTp" customClass="SearchCitiesViewController" customModule="WeatherApp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VM5-hP-qxy">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search City" translatesAutoresizingMaskIntoConstraints="NO" id="fqW-hR-qPR">
+                                <rect key="frame" x="10" y="91" width="390" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ugv-SH-2tl"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="726-ms-JTp" id="fw2-bK-6Xn"/>
+                                </connections>
+                            </searchBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="No such city found" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AjS-lE-uOS">
+                                <rect key="frame" x="55" y="315" width="263" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OO7-B5-8x8">
+                                <rect key="frame" x="10" y="146" width="370" height="664"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Wyk-7b-fAU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fqW-hR-qPR" firstAttribute="leading" secondItem="Wyk-7b-fAU" secondAttribute="leading" constant="10" id="AJN-B1-DZf"/>
+                            <constraint firstItem="Wyk-7b-fAU" firstAttribute="trailing" secondItem="OO7-B5-8x8" secondAttribute="trailing" constant="10" id="ANl-Lp-J05"/>
+                            <constraint firstItem="fqW-hR-qPR" firstAttribute="top" secondItem="Wyk-7b-fAU" secondAttribute="top" id="EQD-Lk-JOd"/>
+                            <constraint firstItem="Wyk-7b-fAU" firstAttribute="bottom" secondItem="OO7-B5-8x8" secondAttribute="bottom" id="JRS-Ut-dW8"/>
+                            <constraint firstItem="fqW-hR-qPR" firstAttribute="trailing" secondItem="Wyk-7b-fAU" secondAttribute="trailing" constant="10" id="M6Y-UR-dFS"/>
+                            <constraint firstItem="OO7-B5-8x8" firstAttribute="top" secondItem="fqW-hR-qPR" secondAttribute="bottom" constant="5" id="eS7-Vi-eKY"/>
+                            <constraint firstItem="OO7-B5-8x8" firstAttribute="leading" secondItem="Wyk-7b-fAU" secondAttribute="leading" constant="10" id="wDm-EU-110"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dIQ-Gp-i1X"/>
+                    <connections>
+                        <outlet property="errorView" destination="AjS-lE-uOS" id="Ifv-qK-mYx"/>
+                        <outlet property="tableView" destination="OO7-B5-8x8" id="qfn-At-nCe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PwZ-pf-AOM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1207.6923076923076" y="77.488151658767762"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="x02-Z7-f9S">
+            <objects>
+                <navigationController id="l0R-tx-FKU" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pRH-t6-Zay">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="8qq-Gy-dlw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iyG-eN-JQh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-350" y="59"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
