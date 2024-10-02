@@ -119,6 +119,21 @@
             </objects>
             <point key="canvasLocation" x="1207.6923076923076" y="77.488151658767762"/>
         </scene>
+        <!--Weather Detail-->
+        <scene sceneID="faw-OS-XYM">
+            <objects>
+                <viewController id="ix3-Gc-tmX" userLabel="Weather Detail" customClass="WeatherDetail" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="chr-Jy-9NB">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="kfL-a0-4sz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C9q-tS-ahW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2319" y="68"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="x02-Z7-f9S">
             <objects>

@@ -15,8 +15,8 @@ class Network {
         case post
         case put
     }
-    //var headers: [String:Any] = [:]
-   // var params: [String:Any] = [:]
+    var headers: [String:Any] = [:]
+    var params: [String:Any] = [:]
     
     
     func getForecast(cityName: String, days: Int) {
@@ -24,20 +24,39 @@ class Network {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         AF.request(apiUrl).responseDecodable(of: ForecastResponse.self, decoder: decoder){ response in
-            print("\(response.error)")
+            print("\(response)")
         }
 
     }
     
-    func searchLocation(searchString: String) {
+    func searchLocation(searchString: String, completion: @escaping (Result<[Location], Error>) -> Void) {
         let apiUrl = Constants.baseUrl+"search.json?q=\(searchString)&key=\(Constants.apiKey)"
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
-        AF.request(apiUrl).responseDecodable(of: SearchResponse.self, decoder: decoder){ response in
-            print("\(response)")
-                
+       // AF.request(apiUrl).responseDecodable(of: SearchResponse.self, decoder: decoder){ response in
+        //    print("\(response.error)")
+      //
+      //  }
+        let request = NSMutableURLRequest(url: URL(string: apiUrl)!)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            self.parseData(data: data!)
         }
-
+        task.resume()
+    }
+    
+    func parseData(data: Data) {
+        do{
+            if let jsonData = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                do {
+                            let users = try JSONDecoder().decode(LocationSearch.self, from: data)
+                    print("result ]\(users)")
+                           // completion(users, nil)
+                        } catch {
+                           // completion(nil, error)
+                        }
+            }} catch {
+            print(error)
+        }
     }
 }
 
@@ -60,12 +79,12 @@ struct Location: Codable {
 }
 
 struct LocationSearch: Codable {
-    let id: Int64
     let name: String
     let region: String
     let country: String
     let lat: Double
     let lon: Double
+    let id: Int
     let url: String
 }
 

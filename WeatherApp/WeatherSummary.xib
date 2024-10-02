@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,12 +19,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnH-mG-gsp">
-                        <rect key="frame" x="5" y="2.6666666666666714" width="1240" height="145"/>
+                        <rect key="frame" x="5" y="2.6666666666666714" width="1235" height="145"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delhi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-xj-ca7">
                                 <rect key="frame" x="0.0" y="53" width="240" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -51,7 +52,7 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="mnH-mG-gsp" secondAttribute="bottom" constant="2.5" id="8jR-tQ-ios"/>
                     <constraint firstItem="mnH-mG-gsp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2.5" id="h1k-r9-ntb"/>
-                    <constraint firstAttribute="trailing" secondItem="mnH-mG-gsp" secondAttribute="trailing" constant="5" id="jY1-nS-2D6"/>
+                    <constraint firstItem="mnH-mG-gsp" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-10" id="jY1-nS-2D6"/>
                     <constraint firstItem="mnH-mG-gsp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="viP-8c-reE"/>
                 </constraints>
             </tableViewCellContentView>

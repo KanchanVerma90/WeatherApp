@@ -70,7 +70,10 @@ class SearchCitiesViewController: UIViewController, UITableViewDelegate, UITable
     // MARK: - Networking
 
     func fetchAutocompleteResults(for query: String) {
-        network.searchLocation(searchString: query)
+        network.searchLocation(searchString: query){_ in 
+        }
+        
+
     }
 
     // MARK: - UISearchResultsUpdating
