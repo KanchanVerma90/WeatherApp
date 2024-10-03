@@ -22,7 +22,13 @@ class ViewController: BaseViewController {
     }
 
     @IBAction func addBtnClicked(_ sender: Any) {
-        performSegue(withIdentifier: "ShowSearchScreen", sender: self)
+        if (cities?.count ?? 0) < 20 {
+            performSegue(withIdentifier: "ShowSearchScreen", sender: self)
+        } else {
+            self.showAlert(message: "Maximum number of cities reached.") {
+                
+            }
+        }
     }
     
     func uiComponents() {
@@ -68,13 +74,34 @@ extension ViewController: UITableViewDataSource,UITableViewDelegate {
         return 80
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+        
+
+        self.cities?.remove(at: indexPath.row)
+        self.citiesList.deleteRows(at: [indexPath], with: .automatic)
+      }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
+        if let city = cities?[indexPath.row ] as? LocationSearch {
+            let cityQuery = city.name + "," + city.region + "," + city.country
+            self.activityIndicator.startAnimating()
+            weatherService.getForecast(cityName: cityQuery, days: 5) { res, err in
+                self.activityIndicator.stopAnimating()
+               
+                if let result = res {
+                    let model = WeatherDetailModel()
+                    model.foreCastData = result
+                    if let detailViewController = self.mainstoryboard.instantiateViewController(withIdentifier: "WeatherDetail") as? WeatherDetail {
+                        detailViewController.model = model
+                        self.navigationController?.pushViewController(detailViewController, animated: true)
+                            }
+                } else {
+                    self.showAlert(message: "Something went wrong") {}
+                }
+            }
+        }
     }
     
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
 }
