@@ -32,15 +32,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="coP-wq-1WI">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="io3-TW-8rl">
-                                <connections>
-                                    <action selector="addBtnClicked:" destination="BYZ-38-t0r" id="ItS-KH-WF5"/>
-                                    <segue destination="726-ms-JTp" kind="show" identifier="ShowSearchScreen" id="jZe-Xk-SmH"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="edit" id="5cY-VE-IQB"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="io3-TW-8rl">
+                            <connections>
+                                <action selector="addBtnClicked:" destination="BYZ-38-t0r" id="ItS-KH-WF5"/>
+                                <segue destination="726-ms-JTp" kind="show" identifier="ShowSearchScreen" id="jZe-Xk-SmH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="citiesList" destination="48z-u7-CXg" id="d8A-h1-Oli"/>

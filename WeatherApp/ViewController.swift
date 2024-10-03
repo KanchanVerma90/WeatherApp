@@ -74,8 +74,7 @@ extension ViewController: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
-        
-
+          self.dataModel.removeEntryFromArrayInPlist(key: "id", value: String(self.cities?[indexPath.row].id ?? 0))
         self.cities?.remove(at: indexPath.row)
         self.citiesList.deleteRows(at: [indexPath], with: .automatic)
       }

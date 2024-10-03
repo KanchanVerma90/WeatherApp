@@ -49,3 +49,14 @@ class WeatherDetailModel {
     }
 }
 
+extension String {
+    func getWeatherImage( completion: @escaping (UIImage?) -> Void)  {
+        if let url = URL(string: "https:\(self)") {
+            DispatchQueue.global(priority: .background).async {
+                    let data = try? Data(contentsOf: url)
+                    var imageData = (data != nil ? UIImage(data: data!) : nil)
+                completion(imageData )
+            }
+                }
+    }
+}
