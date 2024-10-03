@@ -23,6 +23,7 @@ class SearchCitiesViewController: BaseViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         setupTableView()
         setupSearchController()
+        self.navigationController?.title = "Search"
     }
 
     func setupTableView() {

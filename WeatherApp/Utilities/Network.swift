@@ -37,6 +37,11 @@ struct LocationSearch: Codable {
 
 struct CurrentWeather: Codable {
     let temp_c: Double
+    let temp_f: Double
+    let wind_mph: Double
+    let wind_kph: Double
+    let wind_dir: String
+    let humidity: Double
     let condition: WeatherCondition
 }
 
@@ -56,8 +61,10 @@ struct ForecastDay: Codable {
 
 struct Day: Codable {
     let maxtemp_c: Double
+    let maxtemp_f: Double
     let mintemp_c: Double
     let avgtemp_c: Double
+    let mintemp_f: Double
     let condition: WeatherCondition
 }
 
@@ -90,7 +97,8 @@ class Network {
         decoder.dateDecodingStrategy = .iso8601
         params = [
             "key": Constants.apiKey,
-            "q": cityName
+            "q": cityName,
+            "days": days
         ]
         
         AF.request(apiUrl, parameters: params).validate().responseDecodable(of: ForecastResponse.self) { response in

@@ -10,6 +10,7 @@ import UIKit
 class BaseViewController: UIViewController {
     
     let activityIndicator = UIActivityIndicatorView(style: .large)
+    let mainstoryboard = UIStoryboard(name: "Main", bundle: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,4 +33,16 @@ class BaseViewController: UIViewController {
             activityIndicator.hidesWhenStopped = true
             self.view.addSubview(activityIndicator)
         }
+    
+    func showAlert(message: String, okButtonAction: @escaping () -> Void) {
+        let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            okButtonAction()
+        }
+
+        alertController.addAction(okAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
 }
