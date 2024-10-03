@@ -12,9 +12,9 @@ class WeatherDetailModel {
     var foreCastData: ForecastResponse!
     
     func getCurrentTempratures() -> (String, String, String) {
-        let currentTempratureStr = convertTemptoString(tempC: foreCastData.current.temp_c, tempF: foreCastData.current.temp_f)
-        let maxTempratureStr = convertTemptoString(tempC: foreCastData.forecast.forecastday.first?.day.maxtemp_c ?? 27.0, tempF: foreCastData.forecast.forecastday.first?.day.maxtemp_f ?? 0.0)
-        let minTempratureStr = convertTemptoString(tempC: foreCastData.forecast.forecastday.first?.day.mintemp_c ?? 27.0, tempF: foreCastData.forecast.forecastday.first?.day.mintemp_f ?? 0.0)
+        let currentTempratureStr = convertTemptoString(tempC: foreCastData.current.temp_c)
+        let maxTempratureStr = convertTemptoString(tempC: foreCastData.forecast.forecastday.first?.day.maxtemp_c ?? 27.0)
+        let minTempratureStr = convertTemptoString(tempC: foreCastData.forecast.forecastday.first?.day.mintemp_c ?? 27.00)
         return (currentTempratureStr,maxTempratureStr,minTempratureStr)
     }
     
@@ -22,12 +22,10 @@ class WeatherDetailModel {
         return foreCastData.forecast.forecastday
     }
     
-    func convertTemptoString(tempC:Double, tempF:Double) -> String {
+    func convertTemptoString(tempC:Double) -> String {
         let measureFormatter1 = MeasurementFormatter()
-        let measureFormatter2 = MeasurementFormatter()
         let measurementC = Measurement(value: tempC, unit: UnitTemperature.celsius)
-        let measurementF = Measurement(value: tempF, unit: UnitTemperature.fahrenheit)
-        var output = measureFormatter1.string(from: measurementC) + "/" + measureFormatter2.string(from: measurementF)
+        var output = measureFormatter1.string(from: measurementC)
         return output
     }
     
@@ -36,7 +34,8 @@ class WeatherDetailModel {
     }
     
     func getWeatherCondition() -> String {
-        return foreCastData.current.condition.text
+        let windSpeed = String(foreCastData.current.wind_kph) + "kmph " + foreCastData.current.wind_dir
+        return foreCastData.current.condition.text + " with wind at \(windSpeed)"
     }
     
     func getWeatherImage(pathVal: String, completion: @escaping (UIImage?) -> Void)  {

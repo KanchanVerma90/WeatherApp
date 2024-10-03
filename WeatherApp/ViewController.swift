@@ -55,8 +55,6 @@ class ViewController: BaseViewController {
 
 extension ViewController: UITableViewDataSource,UITableViewDelegate {
     
-  
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cities?.count ?? 0
     }

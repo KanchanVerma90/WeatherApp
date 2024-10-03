@@ -97,7 +97,8 @@ class Network {
         decoder.dateDecodingStrategy = .iso8601
         params = [
             "key": Constants.apiKey,
-            "q": cityName
+            "q": cityName,
+            "days": days
         ]
         
         AF.request(apiUrl, parameters: params).validate().responseDecodable(of: ForecastResponse.self) { response in
