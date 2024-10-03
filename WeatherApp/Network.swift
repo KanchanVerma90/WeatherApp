@@ -8,59 +8,6 @@
 import Foundation
 import Alamofire
 
-class Network {
-    
-    enum ApiCallType{
-        case get
-        case post
-        case put
-    }
-    var headers: [String:Any] = [:]
-    var params: [String:Any] = [:]
-    
-    
-    func getForecast(cityName: String, days: Int) {
-        let apiUrl = Constants.baseUrl+"forecast.json?q=\(cityName)&days=\(days)&key=\(Constants.apiKey)"
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-        AF.request(apiUrl).responseDecodable(of: ForecastResponse.self, decoder: decoder){ response in
-            print("\(response)")
-        }
-
-    }
-    
-    func searchLocation(searchString: String, completion: @escaping (Result<[Location], Error>) -> Void) {
-        let apiUrl = Constants.baseUrl+"search.json?q=\(searchString)&key=\(Constants.apiKey)"
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-       // AF.request(apiUrl).responseDecodable(of: SearchResponse.self, decoder: decoder){ response in
-        //    print("\(response.error)")
-      //
-      //  }
-        let request = NSMutableURLRequest(url: URL(string: apiUrl)!)
-        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-            self.parseData(data: data!)
-        }
-        task.resume()
-    }
-    
-    func parseData(data: Data) {
-        do{
-            if let jsonData = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
-                do {
-                            let users = try JSONDecoder().decode(LocationSearch.self, from: data)
-                    print("result ]\(users)")
-                           // completion(users, nil)
-                        } catch {
-                           // completion(nil, error)
-                        }
-            }} catch {
-            print(error)
-        }
-    }
-}
-
-
 
 struct ForecastResponse: Codable {
     let location: Location
@@ -118,3 +65,66 @@ struct Day: Codable {
 struct SearchResponse: Codable {
     let locations: [LocationSearch]
 }
+
+
+struct City: Codable {
+    let name: String
+    let country: String
+    // Add other relevant fields as necessary
+}
+
+class Network {
+    
+    enum ApiCallType{
+        case get
+        case post
+        case put
+    }
+    var headers: [String:Any] = [:]
+    var params: [String:Any] = [:]
+    
+    
+    func getForecast(cityName: String, days: Int, completion: @escaping (ForecastResponse?, Error?) -> Void) {
+        let apiUrl = Constants.baseUrl+"forecast.json"
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        params = [
+            "key": Constants.apiKey,
+            "q": cityName
+        ]
+        
+        AF.request(apiUrl, parameters: params).validate().responseDecodable(of: ForecastResponse.self) { response in
+            switch response.result {
+            case .success(_):
+                print("\(response)")
+                completion(response.value, nil)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+    
+    func searchLocation(searchString: String, completion: @escaping ([LocationSearch]?, Error?) -> Void) {
+        let apiUrl = Constants.baseUrl+"search.json"
+        params = [
+            "key": Constants.apiKey,
+            "q": searchString
+        ]
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+       
+        AF.request(apiUrl, parameters: params).validate().responseDecodable(of: [LocationSearch].self) { response in
+            switch response.result {
+            case .success(_):
+                print("\(response)")
+                completion(response.value, nil)
+            case .failure(let error):
+                print("\(response)")
+                completion(nil, error)
+            }
+        }
+    }
+    
+}
+
+

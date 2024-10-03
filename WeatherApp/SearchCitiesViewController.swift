@@ -9,11 +9,11 @@ import UIKit
 
 import UIKit
 
-class SearchCitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+class SearchCitiesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
 
     var results: [String] = []
-    var filteredResults: [String] = []
-     
+    var filteredResults: [LocationSearch] = []
+     var searchModel = SearchCityModel()
     @IBOutlet weak var tableView: UITableView!
     var searchController: UISearchController!
     @IBOutlet weak var errorView: UIView!
@@ -57,7 +57,8 @@ class SearchCitiesViewController: UIViewController, UITableViewDelegate, UITable
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = isFiltering() ? filteredResults[indexPath.row] : results[indexPath.row]
+        let res = (filteredResults[indexPath.row])
+        cell.textLabel?.text = isFiltering() ? (res.name + "," + res.region + "," +  res.country) : results[indexPath.row]
         return cell
     }
 
@@ -70,10 +71,32 @@ class SearchCitiesViewController: UIViewController, UITableViewDelegate, UITable
     // MARK: - Networking
 
     func fetchAutocompleteResults(for query: String) {
-        network.searchLocation(searchString: query){_ in 
+        self.activityIndicator.startAnimating()
+        self.network.searchLocation(searchString: query) { cities, error in
+            self.activityIndicator.stopAnimating()
+            if let autocompleteResult = cities {
+                self.filteredResults.removeAll()
+                for res in autocompleteResult {
+                    self.filteredResults.append(res)
+                }
+                self.tableView.reloadData()
+                self.tableView.isHidden = false
+                self.errorView.isHidden = true
+            } else {
+                self.tableView.isHidden = true
+                self.errorView.isHidden = false
+            }
+           
         }
-        
 
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let city = filteredResults[indexPath.row]
+        let baseModel = ((self.navigationController?.viewControllers.first(where: {$0.isKind(of: ViewController.self)})) as! ViewController).dataModel
+        searchModel.baseModel = baseModel
+        searchModel.addCityToList(city: city)
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
     // MARK: - UISearchResultsUpdating

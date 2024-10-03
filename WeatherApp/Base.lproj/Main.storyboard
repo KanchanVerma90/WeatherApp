@@ -17,35 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="48z-u7-CXg">
-                                <rect key="frame" x="10" y="91" width="370" height="663"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="80" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="48z-u7-CXg">
+                                <rect key="frame" x="10" y="91" width="370" height="699"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n47-SL-5gC">
-                                <rect key="frame" x="10" y="764" width="370" height="80"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="8d5-K4-Ub6"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GxF-1g-DRn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="n47-SL-5gC" firstAttribute="top" secondItem="48z-u7-CXg" secondAttribute="bottom" id="3QY-Ho-LpQ"/>
                             <constraint firstItem="48z-u7-CXg" firstAttribute="top" secondItem="GxF-1g-DRn" secondAttribute="top" id="E0c-sW-XLk"/>
-                            <constraint firstItem="n47-SL-5gC" firstAttribute="trailing" secondItem="48z-u7-CXg" secondAttribute="trailing" id="L66-EX-xjP"/>
+                            <constraint firstItem="GxF-1g-DRn" firstAttribute="bottom" secondItem="48z-u7-CXg" secondAttribute="bottom" constant="20" id="Kbz-u8-ZWq"/>
                             <constraint firstItem="48z-u7-CXg" firstAttribute="leading" secondItem="GxF-1g-DRn" secondAttribute="leading" constant="10" id="UoT-91-NFc"/>
-                            <constraint firstItem="n47-SL-5gC" firstAttribute="leading" secondItem="48z-u7-CXg" secondAttribute="leading" id="dIK-we-F3Y"/>
                             <constraint firstItem="48z-u7-CXg" firstAttribute="trailing" secondItem="GxF-1g-DRn" secondAttribute="trailing" constant="-10" id="kPh-Me-eTa"/>
-                            <constraint firstItem="n47-SL-5gC" firstAttribute="top" secondItem="48z-u7-CXg" secondAttribute="bottom" constant="10" id="qXz-3y-SUs"/>
-                            <constraint firstItem="n47-SL-5gC" firstAttribute="bottom" secondItem="GxF-1g-DRn" secondAttribute="bottom" constant="34" id="r5O-nU-AE0"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="3QY-Ho-LpQ"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="coP-wq-1WI">
                         <rightBarButtonItems>

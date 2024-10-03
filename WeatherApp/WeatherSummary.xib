@@ -21,15 +21,26 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnH-mG-gsp">
                         <rect key="frame" x="5" y="2.6666666666666714" width="1235" height="145"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delhi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-xj-ca7">
-                                <rect key="frame" x="0.0" y="53" width="240" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delhi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-xj-ca7">
+                                <rect key="frame" x="10" y="50.333333333333336" width="50" height="26.333333333333336"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exJ-hX-vzM">
+                                <rect key="frame" x="10" y="84.666666666666657" width="43.333333333333336" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="exJ-hX-vzM" firstAttribute="leading" secondItem="nbd-xj-ca7" secondAttribute="leading" id="frC-M3-ms4"/>
+                            <constraint firstItem="exJ-hX-vzM" firstAttribute="top" secondItem="nbd-xj-ca7" secondAttribute="bottom" constant="8" id="nRa-CZ-2c3"/>
+                            <constraint firstItem="nbd-xj-ca7" firstAttribute="leading" secondItem="mnH-mG-gsp" secondAttribute="leading" constant="10" id="oDE-xF-ogq"/>
+                            <constraint firstItem="nbd-xj-ca7" firstAttribute="centerY" secondItem="mnH-mG-gsp" secondAttribute="centerY" constant="-9" id="wWy-mY-Luf"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="5"/>
@@ -60,6 +71,11 @@
             <accessibility key="accessibilityConfiguration" identifier="WeatherSummary">
                 <bool key="isElement" value="YES"/>
             </accessibility>
+            <connections>
+                <outlet property="cityDesc" destination="exJ-hX-vzM" id="WCa-dh-Waf"/>
+                <outlet property="cityName" destination="nbd-xj-ca7" id="bBC-gy-TJ6"/>
+                <outlet property="containerView" destination="mnH-mG-gsp" id="d7n-YA-7sG"/>
+            </connections>
             <point key="canvasLocation" x="104.61538461538461" y="42.654028436018955"/>
         </tableViewCell>
     </objects>
