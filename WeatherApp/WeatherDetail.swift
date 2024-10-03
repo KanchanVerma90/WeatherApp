@@ -28,7 +28,7 @@ class WeatherDetail: BaseViewController {
     func updateUI() {
         let nib = UINib(nibName: "ForecastTableViewCell", bundle: nil)
         forecast.register(nib, forCellReuseIdentifier: "ForecastTableViewCell")
-        
+        self.navigationController?.title = "Forecast Detail"
         self.cityName.text = model.getCityName()
         var tempratures = model.getCurrentTempratures()
         minTemp.text = "Min: \(tempratures.2)"

@@ -32,6 +32,7 @@ class ViewController: BaseViewController {
     }
     
     func uiComponents() {
+        self.navigationController?.title = "List of cities"
         let nib = UINib(nibName: "WeatherSummary", bundle: nil)
         citiesList.register(nib, forCellReuseIdentifier: "WeatherSummary")
         citiesList.dataSource = self

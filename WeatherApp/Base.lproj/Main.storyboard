@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--List of cities-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                             <constraint firstItem="48z-u7-CXg" firstAttribute="trailing" secondItem="GxF-1g-DRn" secondAttribute="trailing" constant="-10" id="kPh-Me-eTa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="coP-wq-1WI">
+                    <navigationItem key="navigationItem" title="List of cities" id="coP-wq-1WI">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="io3-TW-8rl">
                             <connections>
                                 <action selector="addBtnClicked:" destination="BYZ-38-t0r" id="ItS-KH-WF5"/>
@@ -47,7 +47,7 @@
             </objects>
             <point key="canvasLocation" x="524.61538461538464" y="64.691943127962077"/>
         </scene>
-        <!--Search Cities View Controller-->
+        <!--Search-->
         <scene sceneID="Y2s-8k-V3T">
             <objects>
                 <viewController id="726-ms-JTp" customClass="SearchCitiesViewController" customModule="WeatherApp" sceneMemberID="viewController">
@@ -90,7 +90,7 @@
                             <constraint firstItem="OO7-B5-8x8" firstAttribute="leading" secondItem="Wyk-7b-fAU" secondAttribute="leading" constant="10" id="wDm-EU-110"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dIQ-Gp-i1X"/>
+                    <navigationItem key="navigationItem" title="Search" id="dIQ-Gp-i1X"/>
                     <connections>
                         <outlet property="errorView" destination="AjS-lE-uOS" id="Ifv-qK-mYx"/>
                         <outlet property="tableView" destination="OO7-B5-8x8" id="qfn-At-nCe"/>
