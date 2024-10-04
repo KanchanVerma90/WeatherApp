@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B226328F2CABBA620035492E /* GooglePlaces in Frameworks */ = {isa = PBXBuildFile; productRef = B226328E2CABBA620035492E /* GooglePlaces */; };
 		B22632922CABBB420035492E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B22632912CABBB420035492E /* Alamofire */; };
 		B226329B2CABE7BB0035492E /* WeatherSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22632992CABE7BB0035492E /* WeatherSummary.swift */; };
 		B226329F2CAC05AA0035492E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B226329E2CAC05AA0035492E /* Network.swift */; };
@@ -84,7 +83,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B226328F2CABBA620035492E /* GooglePlaces in Frameworks */,
 				B22632922CABBB420035492E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,7 +200,6 @@
 			);
 			name = WeatherApp;
 			packageProductDependencies = (
-				B226328E2CABBA620035492E /* GooglePlaces */,
 				B22632912CABBB420035492E /* Alamofire */,
 			);
 			productName = WeatherApp;
@@ -278,7 +275,6 @@
 			);
 			mainGroup = B254F6492CAAB1170032B396;
 			packageReferences = (
-				B226328D2CABBA620035492E /* XCRemoteSwiftPackageReference "ios-places-sdk" */,
 				B22632902CABBB420035492E /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = B254F6532CAAB1170032B396 /* Products */;
@@ -680,14 +676,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B226328D2CABBA620035492E /* XCRemoteSwiftPackageReference "ios-places-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/googlemaps/ios-places-sdk";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		B22632902CABBB420035492E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -699,11 +687,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B226328E2CABBA620035492E /* GooglePlaces */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B226328D2CABBA620035492E /* XCRemoteSwiftPackageReference "ios-places-sdk" */;
-			productName = GooglePlaces;
-		};
 		B22632912CABBB420035492E /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B22632902CABBB420035492E /* XCRemoteSwiftPackageReference "Alamofire" */;

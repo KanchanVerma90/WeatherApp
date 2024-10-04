@@ -12,7 +12,7 @@
         <!--List of cities-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="List of cities" id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jhI-cE-CAh">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -50,7 +50,7 @@
         <!--Search-->
         <scene sceneID="Y2s-8k-V3T">
             <objects>
-                <viewController id="726-ms-JTp" customClass="SearchCitiesViewController" customModule="WeatherApp" sceneMemberID="viewController">
+                <viewController title="Search" id="726-ms-JTp" customClass="SearchCitiesViewController" customModule="WeatherApp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VM5-hP-qxy">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,7 +103,7 @@
         <!--Weather Detail-->
         <scene sceneID="faw-OS-XYM">
             <objects>
-                <viewController storyboardIdentifier="WeatherDetail" id="ix3-Gc-tmX" userLabel="Weather Detail" customClass="WeatherDetail" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WeatherDetail" title="Forecast details" id="ix3-Gc-tmX" userLabel="Weather Detail" customClass="WeatherDetail" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="chr-Jy-9NB">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
